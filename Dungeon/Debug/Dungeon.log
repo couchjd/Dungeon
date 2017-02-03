@@ -1,7 +1,3 @@
-﻿  Game.cpp
-c:\users\couch\onedrive\programming\dungeon\dungeon\game.cpp(78): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\couch\onedrive\programming\dungeon\dungeon\game.cpp(79): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\couch\onedrive\programming\dungeon\dungeon\game.cpp(84): warning C4018: '<': signed/unsigned mismatch
-c:\users\couch\onedrive\programming\dungeon\dungeon\game.cpp(96): warning C4018: '<': signed/unsigned mismatch
+﻿  ActorManager.cpp
   Dungeon.vcxproj -> C:\Users\couch\OneDrive\PROGRAMMING\Dungeon\Debug\Dungeon.exe
   Dungeon.vcxproj -> C:\Users\couch\OneDrive\PROGRAMMING\Dungeon\Debug\Dungeon.pdb (Partial PDB)

@@ -1,7 +1,8 @@
 #include "Player.h"
 #include <iostream>
 
-Player::Player(sf::Sprite* playerSprite) : _sprite(*playerSprite) {
+Player::Player(sf::Sprite* playerSprite) {
+	_sprite = *playerSprite;
 }
 
 //### TO-DO ###
@@ -33,6 +34,3 @@ void Player::move(MoveDir dir) {
 	}
 }
 
-void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-	target.draw(_sprite, states);
-}

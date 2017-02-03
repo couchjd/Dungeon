@@ -15,6 +15,7 @@ public:
 
 private:
 	sf::Music* _bgm;
+	sf::View* _view;
 	sf::RenderWindow* _window;
 	Player* _player;
 	SpriteManager* _spriteManager;
