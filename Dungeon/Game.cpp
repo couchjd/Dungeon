@@ -2,23 +2,45 @@
 #include <iostream>
 
 Game::Game(){
-	_window = new sf::RenderWindow(sf::VideoMode(640, 480), "Dungeon of Doom");
 
-	_spriteManager = new SpriteManager();
+}
+
+Game::~Game(){
+}
+
+void Game::Init() {
+	_window = new sf::RenderWindow(sf::VideoMode(640, 480), "Dungeon of Doom");
 	
+	_spriteManager = new SpriteManager();
+
 	_levelMap = new LevelMap(_spriteManager);
+
+	_socket = new sf::TcpSocket();
+
+	if (_socket->connect("192.168.1.101", 53000) != sf::Socket::Done) {
+		std::cout << "CONNECT ERROR" << std::endl;
+	}
 
 	//Here we can call the createCharacter method and pass the results to
 	//create the player character.
 
 	_player = new Player(&_spriteManager->sprites["knight"]);
-	_player->setPosition(sf::Vector2f(96.f, 96.f));
 	
+	std::cout << "Enter player name: ";
+	std::cin >> _player->_name;
+
+	_player->setPosition(sf::Vector2f(96.f, 96.f));
+
 	_bgm = new sf::Music();
 	_bgm->openFromFile("res/sound/bgm.wav");
 }
 
-Game::~Game(){
+void Game::Shutdown() {
+	delete(_bgm);
+	delete(_player);
+	delete(_levelMap);
+	delete(_spriteManager);
+	delete(_window);
 }
 
 Player* Game::createCharacter() {
@@ -30,6 +52,7 @@ void Game::Run() {
 	_bgm->setLoop(true);
 	_bgm->play();
 	_levelMap->create();
+	
 	while (_window->isOpen()) {
 		sf::Event event;
 		while (_window->pollEvent(event)) {
@@ -41,7 +64,6 @@ void Game::Run() {
 		_window->display();
 	}
 }
-
 
 //Lots of work to be done here. The mouse and keyboard controls should probably be
 //consolidated into another class so that there is less code duplication.
@@ -77,7 +99,12 @@ void Game::handleEvents(sf::Event* event) {
 	if (event->type == sf::Event::KeyPressed) {
 		int rightBound = _player->getPosition().x + _player->getTextureRect().width;
 		int bottomBound = _player->getPosition().y + _player->getTextureRect().height;
-		
+		sf::Packet testPacket;
+		testPacket << &_player;
+		char* testData = "moved";
+
+		_socket->send(testPacket);
+
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			_window->close();
 

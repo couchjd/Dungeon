@@ -116,6 +116,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="LevelMap.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="TMonster.h" />
     <ClInclude Include="Pickup.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="SpriteManager.h" />
@@ -128,6 +129,7 @@
     <ClCompile Include="LevelMap.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="TMonster.cpp" />
     <ClCompile Include="Pickup.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SpriteManager.cpp" />

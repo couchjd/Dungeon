@@ -1,13 +1,15 @@
-#pragma once
-#include "Actor.h"
+#ifndef MONSTER_H
+#define MONSTER_H
 
-enum MonsterType { ALIGOG, BAT, SETHRON, CAVEMAN, FIRBOLEG, HUND, LIZZOG, SPIDER };
-class Monster :	public Actor {
+#include "TMonster.h"
+
+class Monster {
 public:
 	Monster();
-	Monster(sf::Sprite*);
 	~Monster();
-
-	virtual void move(MoveDir) override;
+	std::string getName();
+private:
+	TMonster* monsterClass;
 };
 
+#endif

@@ -1,9 +1,14 @@
 #include <iostream>
 #include "Game.h"
 
-void main() {
+
+int main() {
 	srand(time(NULL));
-	Game* game = new Game();
-	game->Run();
+	Game game;
+	game.Init();
+	game.Run();
+	game.Shutdown();
+
+	return 0;
 }
 
