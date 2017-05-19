@@ -111,25 +111,30 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
-    <ClInclude Include="ActorManager.h" />
+    <ClInclude Include="Armor.h" />
+    <ClInclude Include="BinaryPacket.h" />
+    <ClInclude Include="Command.h" />
     <ClInclude Include="DungeonTile.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="LevelMap.h" />
     <ClInclude Include="Monster.h" />
-    <ClInclude Include="TMonster.h" />
+    <ClInclude Include="MoveCommand.h" />
+    <ClInclude Include="Serializable.h" />
     <ClInclude Include="Pickup.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="SpriteManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
-    <ClCompile Include="ActorManager.cpp" />
+    <ClCompile Include="Armor.cpp" />
+    <ClCompile Include="BinaryPacket.cpp" />
+    <ClCompile Include="Command.cpp" />
     <ClCompile Include="DungeonTile.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LevelMap.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Monster.cpp" />
-    <ClCompile Include="TMonster.cpp" />
+    <ClCompile Include="MoveCommand.cpp" />
     <ClCompile Include="Pickup.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SpriteManager.cpp" />

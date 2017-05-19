@@ -7,6 +7,8 @@
 #include "SpriteManager.h"
 #include "LevelMap.h"
 
+enum GameMode { SINGLE_PLAYER, LOCAL_HOST, REMOTE_HOST };
+
 class Game
 {
 public:
@@ -17,6 +19,8 @@ public:
 	void Shutdown();
 
 private:
+	GameMode gameMode;
+	bool remoteServer;	
 	sf::Music* _bgm;
 	sf::View* _view;
 	sf::RenderWindow* _window;

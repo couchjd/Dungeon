@@ -9,6 +9,9 @@ Game::~Game(){
 }
 
 void Game::Init() {
+//	if(_socket->connect("192.168.1.101", 53000) != sf::Socket::Done)
+//		std::cout << "CONNECT ERROR" << std::endl;
+
 	_window = new sf::RenderWindow(sf::VideoMode(640, 480), "Dungeon of Doom");
 	
 	_spriteManager = new SpriteManager();
@@ -17,17 +20,14 @@ void Game::Init() {
 
 	_socket = new sf::TcpSocket();
 
-	if (_socket->connect("192.168.1.101", 53000) != sf::Socket::Done) {
-		std::cout << "CONNECT ERROR" << std::endl;
-	}
-
 	//Here we can call the createCharacter method and pass the results to
 	//create the player character.
 
 	_player = new Player(&_spriteManager->sprites["knight"]);
 	
-	std::cout << "Enter player name: ";
-	std::cin >> _player->_name;
+	std::cout << "Enter player name: Jeff";
+	//std::cin >> _player->_name;
+	_player->_name = "Jeff";
 
 	_player->setPosition(sf::Vector2f(96.f, 96.f));
 
@@ -38,6 +38,7 @@ void Game::Init() {
 void Game::Shutdown() {
 	delete(_bgm);
 	delete(_player);
+	delete(_socket);
 	delete(_levelMap);
 	delete(_spriteManager);
 	delete(_window);
@@ -78,19 +79,19 @@ void Game::handleEvents(sf::Event* event) {
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 			if (sf::Mouse::getPosition(*_window).x > _player->getPosition().x) {
 				if (_levelMap->_dMap[(int)(_player->getPosition().x / TILE_SIZE) + 1][(int)_player->getPosition().y / TILE_SIZE]->isPassable)
-					_player->move(RIGHT);
+					_player->move(sf::Vector2f(32.0f, 0.0f));
 			}
 			if (sf::Mouse::getPosition(*_window).x < _player->getPosition().x) {
 				if (_levelMap->_dMap[(int)(_player->getPosition().x / TILE_SIZE) - 1][(int)_player->getPosition().y / TILE_SIZE]->isPassable)
-					_player->move(LEFT);
+					_player->move(sf::Vector2f(-32.0f, 0.0f));
 			}
 			if (sf::Mouse::getPosition(*_window).y > _player->getPosition().y) {
 				if (_levelMap->_dMap[(int)_player->getPosition().x / TILE_SIZE][(int)(_player->getPosition().y / TILE_SIZE) + 1]->isPassable)
-					_player->move(DOWN);
+					_player->move(sf::Vector2f(0.0f, 32.0f));
 			}
 			if (sf::Mouse::getPosition(*_window).y < _player->getPosition().y) {
 				if (_levelMap->_dMap[(int)_player->getPosition().x / TILE_SIZE][(int)(_player->getPosition().y / TILE_SIZE) - 1]->isPassable)
-					_player->move(UP);
+					_player->move(sf::Vector2f(0.0f, -32.0f));
 			}
 			else;
 		}
@@ -99,30 +100,25 @@ void Game::handleEvents(sf::Event* event) {
 	if (event->type == sf::Event::KeyPressed) {
 		int rightBound = _player->getPosition().x + _player->getTextureRect().width;
 		int bottomBound = _player->getPosition().y + _player->getTextureRect().height;
-		sf::Packet testPacket;
-		testPacket << &_player;
-		char* testData = "moved";
-
-		_socket->send(testPacket);
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			_window->close();
 
 		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::D) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))) && rightBound < _window->getSize().x) {
 			if (_levelMap->_dMap[(int)(_player->getPosition().x / TILE_SIZE) + 1][(int)_player->getPosition().y / TILE_SIZE]->isPassable)
-				_player->move(RIGHT);
+				_player->move(sf::Vector2f(32.0f, 0.0f));
 		}
 		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::A) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))) && _player->getPosition().x > 0) {
 			if (_levelMap->_dMap[(int)(_player->getPosition().x / TILE_SIZE) - 1][(int)_player->getPosition().y / TILE_SIZE]->isPassable)
-				_player->move(LEFT);
+				_player->move(sf::Vector2f(-32.0f, 0.0f));
 		}
 		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::W) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))) && _player->getPosition().y > 0) {
 			if (_levelMap->_dMap[(int)_player->getPosition().x / TILE_SIZE][(int)(_player->getPosition().y / TILE_SIZE) - 1]->isPassable)
-				_player->move(UP);
+				_player->move(sf::Vector2f(0.0f, -32.0f));
 		}
 		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::S) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))) && bottomBound < _window->getSize().y) {
 			if (_levelMap->_dMap[(int)_player->getPosition().x / TILE_SIZE][(int)(_player->getPosition().y / TILE_SIZE) + 1]->isPassable)
-				_player->move(DOWN);
+				_player->move(sf::Vector2f(0.0f, 32.0f)); 
 		}
 	}
 }

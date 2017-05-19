@@ -2,6 +2,7 @@
 #define LEVELMAP_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
 #include "DungeonTile.h"
 #include "SpriteManager.h"
 
@@ -16,6 +17,7 @@ public:
 	LevelMap(SpriteManager*);
 	~LevelMap();
 	void create();
+	void create(sf::TcpSocket*);
 	DungeonTile* _dMap[W_STEP][H_STEP];
 
 private:

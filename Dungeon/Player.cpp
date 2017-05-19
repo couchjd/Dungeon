@@ -13,7 +13,7 @@ void Player::create(CharClass cClass) {
 		break;
 	}
 }
-
+/*
 void Player::move(MoveDir dir) {
 	sf::Vector2f pos(getPosition().x, getPosition().y);
 	sf::Vector2f rect(getTextureRect().width, getTextureRect().height);
@@ -33,7 +33,7 @@ void Player::move(MoveDir dir) {
 		break;
 	}
 }
-
+*/
 sf::Packet& operator <<(sf::Packet& packet, Player& player) {
 	return packet << &player._name << &player.getPosition();
 }

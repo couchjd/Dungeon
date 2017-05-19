@@ -30,7 +30,7 @@ public:
 	int constitution;
 	int charisma;
 
-	virtual void move(MoveDir) override;
+	//virtual void move(MoveDir) override;
 };
 
 #endif

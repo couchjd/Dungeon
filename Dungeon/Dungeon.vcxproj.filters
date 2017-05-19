@@ -36,13 +36,22 @@
     <ClInclude Include="Actor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ActorManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TMonster.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Monster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Serializable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryPacket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Armor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -71,13 +80,19 @@
     <ClCompile Include="Actor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ActorManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TMonster.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Monster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryPacket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Armor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

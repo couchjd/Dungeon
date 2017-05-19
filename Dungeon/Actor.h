@@ -1,12 +1,13 @@
 #ifndef ACTOR_H
 #define ACTOR_H
 #include <SFML/Graphics.hpp>
+#include "Serializable.h"
 
 enum MoveDir { UP, DOWN, LEFT, RIGHT };
 
 class Actor : public sf::Drawable {
 public:
-	virtual void move(MoveDir) = 0;
+	void move(sf::Vector2f moveVector) ;
 	sf::Sprite _sprite;
 
 	auto getPosition() {
@@ -24,7 +25,7 @@ public:
 
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-	
+
 };
 
 #endif // ACTOR_H

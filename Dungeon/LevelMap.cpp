@@ -19,13 +19,20 @@ LevelMap::~LevelMap(){
 }
 
 void LevelMap::create() {
-	for (int y = 0; y < W_STEP; y++) {
-		for (int x = 0; x < H_STEP; x++) {
+	for(int y = 0; y < W_STEP; y++) {
+		for(int x = 0; x < H_STEP; x++) {
 			_dMap[y][x] = getTileType(x, y);
 			_dMap[y][x]->setPosition(y * 32, x * 32);
-		//creates the texture that will actually be rendered
+			//creates the texture that will actually be rendered
 			_mapTexture.draw(*_dMap[y][x]);
 		}
+	}
+}
+
+void LevelMap::create(sf::TcpSocket* server) {
+	sf::Packet packet;
+	if(server->receive(packet) == sf::Socket::Done) {
+
 	}
 }
 
@@ -43,7 +50,7 @@ DungeonTile* LevelMap::getTileType(int x, int y) {
 	int randNum = rand() % (10 - 0 + 1) + 0;
 //Just provides a black border around the map.
 //This will eventually be removed when the line-of-sight functionality
-//is added-->player cannot see what is on the other side of a _BLOCK_TILE.
+//is added | player cannot see what is on the other side of a _BLOCK_TILE.
 	if (x == 0 || y == 0 || x == H_STEP - 1 || y == W_STEP - 1)
 		return &_BLACK_TILE;
 //Provides a border around the map. This hard-coded border will be removed
