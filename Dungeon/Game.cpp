@@ -15,19 +15,10 @@ void Game::Init() {
 
 	_levelMap = new LevelMap(_spriteManager);
 
-	_socket = new sf::TcpSocket();
-
-	if (_socket->connect("192.168.1.101", 53000) != sf::Socket::Done) {
-		std::cout << "CONNECT ERROR" << std::endl;
-	}
-
 	//Here we can call the createCharacter method and pass the results to
 	//create the player character.
 
 	_player = new Player(&_spriteManager->sprites["knight"]);
-	
-	std::cout << "Enter player name: ";
-	std::cin >> _player->_name;
 
 	_player->setPosition(sf::Vector2f(96.f, 96.f));
 
@@ -58,12 +49,45 @@ void Game::Run() {
 		while (_window->pollEvent(event)) {
 			handleEvents(&event);
 		}
+    MouseMove();
 		_window->clear(sf::Color::Black);
 		_window->draw(*_levelMap);
 		_window->draw(*_player);
 		_window->display();
 	}
 }
+
+void Game::MouseMove() {
+  if(_player->_isMoving) {
+    if(_clock.getElapsedTime().asSeconds() > 0.1f) {
+      _mousePos = sf::Mouse::getPosition(*_window);
+
+      std::cout << "x: " << _mousePos.x << " y: " << _mousePos.y << std::endl;
+      _clock.restart();
+
+      if(_mousePos.x > _player->getPosition().x) {
+        if(_levelMap->_dMap[(int)(_player->getPosition().x / TILE_SIZE) + 1][(int)_player->getPosition().y / TILE_SIZE]->isPassable)
+          _player->move(RIGHT);
+      }
+      if(_mousePos.x < _player->getPosition().x) {
+        if(_levelMap->_dMap[(int)(_player->getPosition().x / TILE_SIZE) - 1][(int)_player->getPosition().y / TILE_SIZE]->isPassable)
+          _player->move(LEFT);
+      }
+      if(_mousePos.y > _player->getPosition().y) {
+        if(_levelMap->_dMap[(int)_player->getPosition().x / TILE_SIZE][(int)(_player->getPosition().y / TILE_SIZE) + 1]->isPassable)
+          _player->move(DOWN);
+      }
+      if(_mousePos.y < _player->getPosition().y) {
+        if(_levelMap->_dMap[(int)_player->getPosition().x / TILE_SIZE][(int)(_player->getPosition().y / TILE_SIZE) - 1]->isPassable)
+          _player->move(UP);
+      }
+      else;
+    }
+  }
+}
+
+
+
 
 //Lots of work to be done here. The mouse and keyboard controls should probably be
 //consolidated into another class so that there is less code duplication.
@@ -75,52 +99,37 @@ void Game::handleEvents(sf::Event* event) {
 	//This needs to be modified to keep the player moving as long as the button
 	//is pressed instead of having to press it once per move.
 	if (event->type == sf::Event::MouseButtonPressed) {
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-			if (sf::Mouse::getPosition(*_window).x > _player->getPosition().x) {
-				if (_levelMap->_dMap[(int)(_player->getPosition().x / TILE_SIZE) + 1][(int)_player->getPosition().y / TILE_SIZE]->isPassable)
-					_player->move(RIGHT);
-			}
-			if (sf::Mouse::getPosition(*_window).x < _player->getPosition().x) {
-				if (_levelMap->_dMap[(int)(_player->getPosition().x / TILE_SIZE) - 1][(int)_player->getPosition().y / TILE_SIZE]->isPassable)
-					_player->move(LEFT);
-			}
-			if (sf::Mouse::getPosition(*_window).y > _player->getPosition().y) {
-				if (_levelMap->_dMap[(int)_player->getPosition().x / TILE_SIZE][(int)(_player->getPosition().y / TILE_SIZE) + 1]->isPassable)
-					_player->move(DOWN);
-			}
-			if (sf::Mouse::getPosition(*_window).y < _player->getPosition().y) {
-				if (_levelMap->_dMap[(int)_player->getPosition().x / TILE_SIZE][(int)(_player->getPosition().y / TILE_SIZE) - 1]->isPassable)
-					_player->move(UP);
-			}
-			else;
+		if (event->mouseButton.button == sf::Mouse::Left) {
+      _player->_isMoving = true;
 		}
 	}
+
+  if(event->type == sf::Event::MouseButtonReleased) {
+    if(event->mouseButton.button == sf::Mouse::Left) {
+      _player->_isMoving = false;
+    }
+  }
 
 	if (event->type == sf::Event::KeyPressed) {
 		int rightBound = _player->getPosition().x + _player->getTextureRect().width;
 		int bottomBound = _player->getPosition().y + _player->getTextureRect().height;
-		sf::Packet testPacket;
-		testPacket << &_player;
-		char* testData = "moved";
-
-		_socket->send(testPacket);
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			_window->close();
 
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::D) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))) && rightBound < _window->getSize().x) {
+		if (MOVE_RIGHT) && rightBound < _window->getSize().x) {
 			if (_levelMap->_dMap[(int)(_player->getPosition().x / TILE_SIZE) + 1][(int)_player->getPosition().y / TILE_SIZE]->isPassable)
 				_player->move(RIGHT);
 		}
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::A) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))) && _player->getPosition().x > 0) {
+		if (MOVE_LEFT) && _player->getPosition().x > 0) {
 			if (_levelMap->_dMap[(int)(_player->getPosition().x / TILE_SIZE) - 1][(int)_player->getPosition().y / TILE_SIZE]->isPassable)
 				_player->move(LEFT);
 		}
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::W) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))) && _player->getPosition().y > 0) {
+		if (MOVE_UP) && _player->getPosition().y > 0) {
 			if (_levelMap->_dMap[(int)_player->getPosition().x / TILE_SIZE][(int)(_player->getPosition().y / TILE_SIZE) - 1]->isPassable)
 				_player->move(UP);
 		}
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::S) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))) && bottomBound < _window->getSize().y) {
+		if (MOVE_DOWN) && bottomBound < _window->getSize().y) {
 			if (_levelMap->_dMap[(int)_player->getPosition().x / TILE_SIZE][(int)(_player->getPosition().y / TILE_SIZE) + 1]->isPassable)
 				_player->move(DOWN);
 		}

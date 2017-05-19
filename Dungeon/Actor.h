@@ -9,6 +9,8 @@ public:
 	virtual void move(MoveDir) = 0;
 	sf::Sprite _sprite;
 
+  bool _isMoving = false;
+
 	auto getPosition() {
 		return _sprite.getPosition();
 	}
