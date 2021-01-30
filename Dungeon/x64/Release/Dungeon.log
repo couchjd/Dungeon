@@ -2,25 +2,101 @@
   ActorManager.cpp
   DungeonTile.cpp
   Game.cpp
-Game.cpp(114): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-Game.cpp(115): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-Game.cpp(120): warning C4018: '<': signed/unsigned mismatch
-Game.cpp(132): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Jeff\Documents\Programming\Dungeon\Dungeon\Game.cpp(114,18): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Jeff\Documents\Programming\Dungeon\Dungeon\Game.cpp(115,19): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Jeff\Documents\Programming\Dungeon\Dungeon\Game.cpp(120,33): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Jeff\Documents\Programming\Dungeon\Dungeon\Game.cpp(132,33): warning C4018: '<': signed/unsigned mismatch
   LevelMap.cpp
-c:\users\couch\documents\programming\game_dev\dungeon\dungeon\DungeonTile.h(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  LevelMap.cpp(25): note: see reference to function template instantiation 'void DungeonTile::setPosition<int,int>(int &&,int &&)' being compiled
+C:\Users\Jeff\Documents\Programming\Dungeon\Dungeon\DungeonTile.h(21,42): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Jeff\Documents\Programming\Dungeon\Dungeon\LevelMap.cpp(25): message : see reference to function template instantiation 'void DungeonTile::setPosition<int,int>(int &&,int &&)' being compiled
   Main.cpp
-Main.cpp(6): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Jeff\Documents\Programming\Dungeon\Dungeon\Main.cpp(6,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Monster.cpp
   TMonster.cpp
   Pickup.cpp
   Player.cpp
-Player.cpp(19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-Player.cpp(38): warning C4800: 'std::string *': forcing value to bool 'true' or 'false' (performance warning)
-Player.cpp(38): warning C4800: 'sf::Vector2f *': forcing value to bool 'true' or 'false' (performance warning)
+C:\Users\Jeff\Documents\Programming\Dungeon\Dungeon\Player.cpp(19,60): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Jeff\Documents\Programming\Dungeon\Dungeon\Player.cpp(19,36): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
   SpriteManager.cpp
-  Generating code
-  All 356 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  Dungeon.vcxproj -> C:\Users\couch\Documents\PROGRAMMING\GAME_DEV\Dungeon\x64\Release\Dungeon.exe
-  Dungeon.vcxproj -> C:\Users\couch\Documents\PROGRAMMING\GAME_DEV\Dungeon\x64\Release\Dungeon.pdb (Full PDB)
+Actor.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::RenderTarget::draw(class sf::Drawable const &,class sf::RenderStates const &)" (__imp_?draw@RenderTarget@sf@@QEAAXAEBVDrawable@2@AEBVRenderStates@2@@Z)
+ActorManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::Sprite::Sprite(void)" (__imp_??0Sprite@sf@@QEAA@XZ)
+ActorManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl sf::Sprite::~Sprite(void)" (__imp_??1Sprite@sf@@UEAA@XZ)
+DungeonTile.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::Drawable::Drawable(void)" (__imp_??0Drawable@sf@@QEAA@XZ)
+DungeonTile.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl sf::Drawable::~Drawable(void)" (__imp_??1Drawable@sf@@UEAA@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class sf::RenderStates const sf::RenderStates::Default" (__imp_?Default@RenderStates@sf@@2V12@B)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Time __cdecl sf::Clock::restart(void)" (__imp_?restart@Clock@sf@@QEAA?AVTime@2@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Time __cdecl sf::Clock::getElapsedTime(void)const " (__imp_?getElapsedTime@Clock@sf@@QEBA?AVTime@2@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::Clock::Clock(void)" (__imp_??0Clock@sf@@QEAA@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: float __cdecl sf::Time::asSeconds(void)const " (__imp_?asSeconds@Time@sf@@QEBAMXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Vector2<float> const & __cdecl sf::Transformable::getPosition(void)const " (__imp_?getPosition@Transformable@sf@@QEBAAEBV?$Vector2@M@2@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::Transformable::setPosition(class sf::Vector2<float> const &)" (__imp_?setPosition@Transformable@sf@@QEAAXAEBV?$Vector2@M@2@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::Texture::~Texture(void)" (__imp_??1Texture@sf@@QEAA@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) private: virtual bool __cdecl sf::RenderWindow::activate(bool)" (__imp_?activate@RenderWindow@sf@@EEAA_N_N@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) protected: virtual void __cdecl sf::RenderWindow::onResize(void)" (__imp_?onResize@RenderWindow@sf@@MEAAXXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) protected: virtual void __cdecl sf::RenderWindow::onCreate(void)" (__imp_?onCreate@RenderWindow@sf@@MEAAXXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual class sf::Vector2<unsigned int> __cdecl sf::RenderWindow::getSize(void)const " (__imp_?getSize@RenderWindow@sf@@UEBA?AV?$Vector2@I@2@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl sf::RenderWindow::~RenderWindow(void)" (__imp_??1RenderWindow@sf@@UEAA@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::RenderWindow::RenderWindow(class sf::VideoMode,class sf::String const &,unsigned int,struct sf::ContextSettings const &)" (__imp_??0RenderWindow@sf@@QEAA@VVideoMode@1@AEBVString@1@IAEBUContextSettings@1@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class sf::Color const sf::Color::Black" (__imp_?Black@Color@sf@@2V12@B)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::Window::display(void)" (__imp_?display@Window@sf@@QEAAXXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __cdecl sf::Window::pollEvent(class sf::Event &)" (__imp_?pollEvent@Window@sf@@QEAA_NAEAVEvent@2@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __cdecl sf::Window::isOpen(void)const " (__imp_?isOpen@Window@sf@@QEBA_NXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::Window::close(void)" (__imp_?close@Window@sf@@QEAAXXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::RenderTarget::clear(class sf::Color const &)" (__imp_?clear@RenderTarget@sf@@QEAAXAEBVColor@2@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static bool __cdecl sf::Keyboard::isKeyPressed(enum sf::Keyboard::Key)" (__imp_?isKeyPressed@Keyboard@sf@@SA_NW4Key@12@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::String::String(char const *,class std::locale const &)" (__imp_??0String@sf@@QEAA@PEBDAEBVlocale@std@@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::VideoMode::VideoMode(unsigned int,unsigned int,unsigned int)" (__imp_??0VideoMode@sf@@QEAA@III@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Rect<int> const & __cdecl sf::Sprite::getTextureRect(void)const " (__imp_?getTextureRect@Sprite@sf@@QEBAAEBV?$Rect@H@2@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) protected: virtual void __cdecl sf::Music::onSeek(class sf::Time)" (__imp_?onSeek@Music@sf@@MEAAXVTime@2@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) protected: virtual bool __cdecl sf::Music::onGetData(struct sf::SoundStream::Chunk &)" (__imp_?onGetData@Music@sf@@MEAA_NAEAUChunk@SoundStream@2@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __cdecl sf::Music::openFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (__imp_?openFromFile@Music@sf@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl sf::Music::~Music(void)" (__imp_??1Music@sf@@UEAA@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::Music::Music(void)" (__imp_??0Music@sf@@QEAA@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::SoundStream::setLoop(bool)" (__imp_?setLoop@SoundStream@sf@@QEAAX_N@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::SoundStream::play(void)" (__imp_?play@SoundStream@sf@@QEAAXXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class sf::Vector2<int> __cdecl sf::Mouse::getPosition(class sf::Window const &)" (__imp_?getPosition@Mouse@sf@@SA?AV?$Vector2@H@2@AEBVWindow@2@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::String::~String(void)" (__imp_??1String@sf@@QEAA@XZ)
+LevelMap.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::Transformable::setPosition(float,float)" (__imp_?setPosition@Transformable@sf@@QEAAXMM@Z)
+LevelMap.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Texture const & __cdecl sf::RenderTexture::getTexture(void)const " (__imp_?getTexture@RenderTexture@sf@@QEBAAEBVTexture@2@XZ)
+LevelMap.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __cdecl sf::RenderTexture::create(unsigned int,unsigned int,bool)" (__imp_?create@RenderTexture@sf@@QEAA_NII_N@Z)
+LevelMap.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl sf::RenderTexture::~RenderTexture(void)" (__imp_??1RenderTexture@sf@@UEAA@XZ)
+LevelMap.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::RenderTexture::RenderTexture(void)" (__imp_??0RenderTexture@sf@@QEAA@XZ)
+LevelMap.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::Sprite::setTextureRect(class sf::Rect<int> const &)" (__imp_?setTextureRect@Sprite@sf@@QEAAXAEBV?$Rect@H@2@@Z)
+LevelMap.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::Sprite::Sprite(class sf::Texture const &)" (__imp_??0Sprite@sf@@QEAA@AEBVTexture@1@@Z)
+TMonster.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Sprite & __cdecl sf::Sprite::operator=(class sf::Sprite const &)" (__imp_??4Sprite@sf@@QEAAAEAV01@AEBV01@@Z)
+Player.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Packet & __cdecl sf::Packet::operator<<(bool)" (__imp_??6Packet@sf@@QEAAAEAV01@_N@Z)
+Player.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Packet & __cdecl sf::Packet::operator>>(float &)" (__imp_??5Packet@sf@@QEAAAEAV01@AEAM@Z)
+Player.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Packet & __cdecl sf::Packet::operator>>(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &)" (__imp_??5Packet@sf@@QEAAAEAV01@AEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+SpriteManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __cdecl sf::Texture::loadFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class sf::Rect<int> const &)" (__imp_?loadFromFile@Texture@sf@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$Rect@H@2@@Z)
+SpriteManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::Texture::Texture(void)" (__imp_??0Texture@sf@@QEAA@XZ)
+SpriteManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::Sprite::Sprite(class sf::Texture const &,class sf::Rect<int> const &)" (__imp_??0Sprite@sf@@QEAA@AEBVTexture@1@AEBV?$Rect@H@1@@Z)
+SpriteManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::Sprite::Sprite(class sf::Sprite &&)" (__imp_??0Sprite@sf@@QEAA@$$QEAV01@@Z)
+C:\Users\Jeff\Documents\Programming\Dungeon\x64\Release\Dungeon.exe : fatal error LNK1120: 53 unresolved externals
