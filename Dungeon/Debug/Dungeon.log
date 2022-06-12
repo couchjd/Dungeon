@@ -1,0 +1,12 @@
+﻿  Game.cpp
+c:\users\couch\onedrive\programming\dungeon\dungeon\game.cpp(90): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\couch\onedrive\programming\dungeon\dungeon\game.cpp(91): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\couch\onedrive\programming\dungeon\dungeon\game.cpp(96): warning C4018: '<': signed/unsigned mismatch
+c:\users\couch\onedrive\programming\dungeon\dungeon\game.cpp(108): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Compiling...
+  Main.cpp
+c:\users\couch\onedrive\programming\dungeon\dungeon\main.cpp(6): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  Dungeon.vcxproj -> C:\Users\couch\OneDrive\PROGRAMMING\Dungeon\Debug\Dungeon.exe
+  Dungeon.vcxproj -> C:\Users\couch\OneDrive\PROGRAMMING\Dungeon\Debug\Dungeon.pdb (Partial PDB)
