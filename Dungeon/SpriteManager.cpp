@@ -3,7 +3,7 @@
 SpriteManager::SpriteManager(){
 	_spriteSheet.loadFromFile("./res/graphics/dungeon_sheet.png");
 	
-	//Dungeon Blocks
+	// Dungeon Blocks
 	sprites.emplace("white",	   sf::Sprite(_spriteSheet, sf::IntRect(0,	0,	32, 32)));
 	sprites.emplace("grey",		   sf::Sprite(_spriteSheet, sf::IntRect(32,  0,	32, 32)));
 	sprites.emplace("block",	   sf::Sprite(_spriteSheet, sf::IntRect(64,  0,	32, 32)));
@@ -11,7 +11,7 @@ SpriteManager::SpriteManager(){
 	sprites.emplace("down",		   sf::Sprite(_spriteSheet, sf::IntRect(128, 0, 32, 32)));
 	sprites.emplace("black",	   sf::Sprite(_spriteSheet, sf::IntRect(160, 0, 32, 32)));
 
-	//Player Class Sprites
+	// Player Class Sprites
 	sprites.emplace("knight",	   sf::Sprite(_spriteSheet, sf::IntRect(0,	32, 32, 32)));
 	sprites.emplace("fighter",	   sf::Sprite(_spriteSheet, sf::IntRect(32,  32, 32, 32)));
 	sprites.emplace("wizard",	   sf::Sprite(_spriteSheet, sf::IntRect(64,  32, 32, 32)));
@@ -20,17 +20,7 @@ SpriteManager::SpriteManager(){
 	sprites.emplace("jeweller",   sf::Sprite(_spriteSheet, sf::IntRect(160, 32, 32, 32)));
 	sprites.emplace("jones",	   sf::Sprite(_spriteSheet, sf::IntRect(192, 32, 32, 32)));
 
-	//Enemy Sprites
-	sprites.emplace("aligog",	   sf::Sprite(_spriteSheet, sf::IntRect(0,	128, 32, 32)));
-	sprites.emplace("g_bat",	   sf::Sprite(_spriteSheet, sf::IntRect(32,  128, 32, 32)));
-	sprites.emplace("sethron",	   sf::Sprite(_spriteSheet, sf::IntRect(64,  128, 32, 32)));
-	sprites.emplace("caveman",	   sf::Sprite(_spriteSheet, sf::IntRect(96,  128, 32, 32)));
-	sprites.emplace("firboleg",   sf::Sprite(_spriteSheet, sf::IntRect(128, 128, 32, 32)));
-	sprites.emplace("hund",		   sf::Sprite(_spriteSheet, sf::IntRect(160, 128, 32, 32)));
-	sprites.emplace("lizzog",	   sf::Sprite(_spriteSheet, sf::IntRect(192, 128, 32, 32)));
-	sprites.emplace("spider",	   sf::Sprite(_spriteSheet, sf::IntRect(224, 128, 32, 32)));
-
-	//Pickup Sprites
+	// Pickup Sprites
 	sprites.emplace("food",		   sf::Sprite(_spriteSheet, sf::IntRect(0,   64, 32, 32)));
 	sprites.emplace("potion",	   sf::Sprite(_spriteSheet, sf::IntRect(32,  64, 32, 32)));
 	sprites.emplace("scroll",	   sf::Sprite(_spriteSheet, sf::IntRect(64,  64, 32, 32)));
@@ -49,5 +39,27 @@ SpriteManager::SpriteManager(){
 	sprites.emplace("l_rock",	   sf::Sprite(_spriteSheet, sf::IntRect(480, 64, 32, 32)));
 	sprites.emplace("glove",	   sf::Sprite(_spriteSheet, sf::IntRect(512, 64, 32, 32)));
 	sprites.emplace("shield",	   sf::Sprite(_spriteSheet, sf::IntRect(544, 64, 32, 32)));
+
+   // Blank (For Now)
+   //sprites.emplace("blank1",     sf::Sprite(_spriteSheet, sf::IntRect(0,   96, 32, 32)));
+   //sprites.emplace("blank2",     sf::Sprite(_spriteSheet, sf::IntRect(32,  96, 32, 32)));
+   //sprites.emplace("blank3",     sf::Sprite(_spriteSheet, sf::IntRect(64,  96, 32, 32)));
+   //sprites.emplace("blank4",     sf::Sprite(_spriteSheet, sf::IntRect(96,  96, 32, 32)));
+   //sprites.emplace("blank5",     sf::Sprite(_spriteSheet, sf::IntRect(128, 96, 32, 32)));
+   //sprites.emplace("blank6",     sf::Sprite(_spriteSheet, sf::IntRect(160, 96, 32, 32)));
+   //sprites.emplace("blank7",     sf::Sprite(_spriteSheet, sf::IntRect(192, 96, 32, 32)));
+   //sprites.emplace("blank8",     sf::Sprite(_spriteSheet, sf::IntRect(224, 96, 32, 32)));
+   //sprites.emplace("blank9",     sf::Sprite(_spriteSheet, sf::IntRect(256, 96, 32, 32)));
+   //sprites.emplace("blank10",    sf::Sprite(_spriteSheet, sf::IntRect(288, 96, 32, 32)));
+
+	// Enemy Sprites
+	sprites.emplace("aligog",	   sf::Sprite(_spriteSheet, sf::IntRect(0,	128, 32, 32)));
+	sprites.emplace("g_bat",	   sf::Sprite(_spriteSheet, sf::IntRect(32,  128, 32, 32)));
+	sprites.emplace("sethron",	   sf::Sprite(_spriteSheet, sf::IntRect(64,  128, 32, 32)));
+	sprites.emplace("caveman",	   sf::Sprite(_spriteSheet, sf::IntRect(96,  128, 32, 32)));
+	sprites.emplace("firboleg",   sf::Sprite(_spriteSheet, sf::IntRect(128, 128, 32, 32)));
+	sprites.emplace("hund",		   sf::Sprite(_spriteSheet, sf::IntRect(160, 128, 32, 32)));
+	sprites.emplace("lizzog",	   sf::Sprite(_spriteSheet, sf::IntRect(192, 128, 32, 32)));
+	sprites.emplace("spider",	   sf::Sprite(_spriteSheet, sf::IntRect(224, 128, 32, 32)));
 }
 
