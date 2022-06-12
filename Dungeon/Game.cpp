@@ -9,7 +9,7 @@ Game::~Game(){
 }
 
 void Game::Init() {
-	_window = new sf::RenderWindow(sf::VideoMode(640, 480), "Dungeon of Doom");
+	_window = new sf::RenderWindow(sf::VideoMode(640, 480), "Dungeon of Doom", sf::Style::Titlebar | sf::Style::Close);
 	
 	_spriteManager = new SpriteManager();
 

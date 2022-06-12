@@ -1,2 +1,12 @@
-﻿  Dungeon.vcxproj -> D:\PROGRAMMING\Portfolio Repos\Dungeon\x64\Release\Dungeon.exe
+﻿  Game.cpp
+Game.cpp(114): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+Game.cpp(115): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+Game.cpp(120): warning C4018: '<': signed/unsigned mismatch
+Game.cpp(132): warning C4018: '<': signed/unsigned mismatch
+  Generating code
+  3 of 356 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Dungeon.vcxproj -> D:\PROGRAMMING\Portfolio Repos\Dungeon\x64\Release\Dungeon.exe
   Dungeon.vcxproj -> D:\PROGRAMMING\Portfolio Repos\Dungeon\x64\Release\Dungeon.pdb (Full PDB)
